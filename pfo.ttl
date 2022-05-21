@@ -1,0 +1,269 @@
+@prefix : <http://purl.jp/bio/10/pfo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.jp/bio/10/pfo/> .
+
+<http://purl.jp/bio/10/pfo/> rdf:type owl:Ontology ;
+                                     owl:versionIRI <http://purl.jp/bio/10/pfo/0.1> ;
+                                     owl:imports <http://www.w3.org/2004/02/skos/core> ;
+                                     rdfs:label "Pedigree Finder Ontology(PFO)"@en ;
+                                     owl:versionInfo "0.1"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.jp/bio/10/pfo/breeding
+<http://purl.jp/bio/10/pfo/breeding> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <http://purl.jp/bio/10/pfo/BiologicalMaterial> ;
+                                     rdfs:range <http://purl.jp/bio/10/pfo/Breeding> ;
+                                     rdfs:label "Breeding"@en .
+
+
+###  http://purl.jp/bio/10/pfo/derived_from
+<http://purl.jp/bio/10/pfo/derived_from> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://purl.jp/bio/10/pfo/BreedingMaterial> ;
+                                         rdfs:range <http://purl.jp/bio/10/pfo/BiologicalMaterial> ;
+                                         rdfs:comment "育種素材として使用された系統"@ja ;
+                                         rdfs:label "Derived from"@en ,
+                                                    "由来"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/material
+<http://purl.jp/bio/10/pfo/material> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <http://purl.jp/bio/10/pfo/Breeding> ;
+                                     rdfs:range <http://purl.jp/bio/10/pfo/BreedingMaterial> ;
+                                     rdfs:comment "素材"@ja ;
+                                     rdfs:label "Material"@en ,
+                                                "素材"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/mutation_method
+<http://purl.jp/bio/10/pfo/mutation_method> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://purl.jp/bio/10/pfo/Breeding> ;
+                                            rdfs:label "Mutation method"@en ,
+                                                       "変異誘発手法"@ja .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.jp/bio/10/pfo/cultivar_name_kana
+<http://purl.jp/bio/10/pfo/cultivar_name_kana> rdf:type owl:DatatypeProperty ;
+                                              rdfs:subPropertyOf <http://purl.jp/bio/10/pfo/breeding_line_name> ;
+                                              rdfs:comment "Japanese pronunciation of cultivar name"@en ,
+                                                           "品種名の読み仮名表記"@ja ;
+                                              rdfs:label "Cultivar name (kana)"@en ,
+                                                         "品種名（かな）"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/accession_number
+<http://purl.jp/bio/10/pfo/accession_number> rdf:type owl:DatatypeProperty ;
+                                             rdfs:subPropertyOf <http://purl.jp/bio/10/pfo/breeding_line_name> ;
+                                             rdfs:label "Accession number"@en ,
+                                                        "系統番号"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/application
+<http://purl.jp/bio/10/pfo/application> rdf:type owl:DatatypeProperty ;
+                                        rdfs:comment "'酒米','飼料米', 'うどん'などの品種の用途"@ja ;
+                                        rdfs:label "Application"@en ,
+                                                   "用途"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/breeder_name
+<http://purl.jp/bio/10/pfo/breeder_name> rdf:type owl:DatatypeProperty ;
+                                         rdfs:comment "育成者名、育成地名"@ja ;
+                                         rdfs:label "Breeder's name"@en ,
+                                                    "育成者名"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/breeding_line_name
+<http://purl.jp/bio/10/pfo/breeding_line_name> rdf:type owl:DatatypeProperty ;
+                                               rdfs:label "Breeding line name"@en ,
+                                                          "育種系統名"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/cultivar_name
+<http://purl.jp/bio/10/pfo/cultivar_name> rdf:type owl:DatatypeProperty ;
+                                          rdfs:subPropertyOf <http://purl.jp/bio/10/pfo/breeding_line_name> ;
+                                          rdfs:label "Cultivar name"@en ,
+                                                     "品種名"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/cultivar_name_roman
+<http://purl.jp/bio/10/pfo/cultivar_name_roman> rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf <http://purl.jp/bio/10/pfo/breeding_line_name> ;
+                                                rdfs:comment "Romanized cultivar name"@en ,
+                                                             "品種名のローマ字表記"@ja ;
+                                                rdfs:label "Cultivar name(roman alphabet)"@en ,
+                                                           "品種名（ローマ字）"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/date_breeding_started
+<http://purl.jp/bio/10/pfo/date_breeding_started> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+                                                  rdfs:label "Date breeding started"@en ,
+                                                             "育成開始年月日"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/date_norin_registration
+<http://purl.jp/bio/10/pfo/date_norin_registration> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+                                                    rdfs:comment "農林認定品種（旧：命名登録品種）登録年月日"@ja ;
+                                                    rdfs:label "Date norin registration"@en ,
+                                                               "農林登録年月日"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/date_released
+<http://purl.jp/bio/10/pfo/date_released> rdf:type owl:DatatypeProperty ;
+                                          rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+                                          rdfs:label "Date released"@en ,
+                                                     "配布開始年月日"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/date_variety_registration
+<http://purl.jp/bio/10/pfo/date_variety_registration> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+                                                      rdfs:comment "Registration date under Plant Variety Protection System"@en ,
+                                                                   "品種登録年月日（種苗法）"@ja ;
+                                                      rdfs:label "Variety registration date (PVP)"@en ,
+                                                                 "品種登録年月日（種苗法）"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/generation
+<http://purl.jp/bio/10/pfo/generation> rdf:type owl:DatatypeProperty ;
+                                       rdfs:comment "'F4'や'BC3F2'、'A8'などを世代情報"@ja ;
+                                       rdfs:label "Generation"@en ,
+                                                  "世代"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/naming_day
+<http://purl.jp/bio/10/pfo/naming_day> rdf:type owl:DatatypeProperty ;
+                                       rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
+                                       rdfs:label "Naming day"@en ,
+                                                  "命名年月日"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/norin_number
+<http://purl.jp/bio/10/pfo/norin_number> rdf:type owl:DatatypeProperty ;
+                                         rdfs:comment "numbered cultivar by MAFF"@en ,
+                                                      "農林認定品種（旧：命名登録品種）"@ja ;
+                                         rdfs:label "Norin number"@en ,
+                                                    "農林番号"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/old_line_name
+<http://purl.jp/bio/10/pfo/old_line_name> rdf:type owl:DatatypeProperty ;
+                                          rdfs:subPropertyOf <http://purl.jp/bio/10/pfo/breeding_line_name> ;
+                                          rdfs:label "Old line number"@en ,
+                                                     "旧系統名"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/pedigree
+<http://purl.jp/bio/10/pfo/pedigree> rdf:type owl:DatatypeProperty ;
+                                     rdfs:comment "交配組み合わせ"@ja ;
+                                     rdfs:label "Pedigree"@en ,
+                                                "交配組み合わせ"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/variety_registration_number
+<http://purl.jp/bio/10/pfo/variety_registration_number> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:comment "Registration number under Plant Variety Protection System"@en ,
+                                                                     "品種登録番号（種苗法）"@ja ;
+                                                        rdfs:label "Variety registration number (PVP)"@en ,
+                                                                   "品種登録番号（種苗法）"@ja .
+
+
+###  http://purl.org/dc/terms/date
+<http://purl.org/dc/terms/date> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.jp/bio/10/pfo/Accession
+<http://purl.jp/bio/10/pfo/Accession> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://purl.jp/bio/10/pfo/BreedingLine> ;
+                                      rdfs:comment "'地方有力系統'のような品種登録前まで開発された系統名"@ja ;
+                                      rdfs:label "Accession"@en ,
+                                                 "有力系統"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/BackcrossBreeding
+<http://purl.jp/bio/10/pfo/BackcrossBreeding> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://purl.jp/bio/10/pfo/CrossBreeding> ;
+                                              rdfs:label "Backcross breeding"@en ,
+                                                         "戻し交雑育種"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/Breeding
+<http://purl.jp/bio/10/pfo/Breeding> rdf:type owl:Class ;
+                                     rdfs:comment "新品種の育成"@ja ;
+                                     rdfs:label "Breeding"@en ,
+                                                "育種"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/BreedingLine
+<http://purl.jp/bio/10/pfo/BreedingLine> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://purl.jp/bio/10/pfo/BiologicalMaterial> ;
+                                         rdfs:comment "品種や地方系統を含む、育種過程の全ての系統を指す概念"@ja ;
+                                         rdfs:label "Breeding line"@en ,
+                                                    "育種系統"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/BreedingMaterial
+<http://purl.jp/bio/10/pfo/BreedingMaterial> rdf:type owl:Class ;
+                                             rdfs:label "Breeding material"@en .
+
+
+###  http://purl.jp/bio/10/pfo/CrossBreeding
+<http://purl.jp/bio/10/pfo/CrossBreeding> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://purl.jp/bio/10/pfo/Breeding> ;
+                                          rdfs:label "Cross breeding"@en ,
+                                                     "交雑育種"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/Cultivar
+<http://purl.jp/bio/10/pfo/Cultivar> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://purl.jp/bio/10/pfo/Accession> ;
+                                     rdfs:comment "品種として登録され、販売されている系統"@ja ;
+                                     rdfs:label "Cultivar"@en ,
+                                                "品種"@ja ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "Varieties"@en .
+
+
+###  http://purl.jp/bio/10/pfo/MutationBreeding
+<http://purl.jp/bio/10/pfo/MutationBreeding> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://purl.jp/bio/10/pfo/Breeding> ;
+                                             rdfs:label "Mutation breeding"@en ,
+                                                        "突然変異育種"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/SelectionBreeding
+<http://purl.jp/bio/10/pfo/SelectionBreeding> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://purl.jp/bio/10/pfo/Breeding> ;
+                                              rdfs:label "Selection breeding"@en ,
+                                                         "選抜育種"@ja ;
+                                              <http://www.w3.org/2004/02/skos/core#altLabel> "分離育種"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/WildAccession
+<http://purl.jp/bio/10/pfo/WildAccession> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://purl.jp/bio/10/pfo/BiologicalMaterial> ;
+                                          rdfs:label "Wild accession"@en ,
+                                                     "野生種"@ja .
+
+
+###  http://purl.jp/bio/10/pfo/BiologicalMaterial
+<http://purl.jp/bio/10/pfo/BiologicalMaterial> rdf:type owl:Class ;
+                                                    rdfs:comment "'育種系統'や'野生種'の上位概念"@ja ;
+                                                    rdfs:label "Biological material"@en .
+
+
+###  Generated by the OWL API (version 4.5.7.2018-12-02T02:23:35Z) https://github.com/owlcs/owlapi
