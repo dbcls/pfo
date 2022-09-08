@@ -4,8 +4,8 @@
 
 ## Contributors
 
-Shuichi Kawashima
-Hiromi Kanegae
-Yoko Okabeppu
+- Shuichi Kawashima
+- Hiromi Kanegae
+- Yoko Okabeppu
 
 
